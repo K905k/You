@@ -42,7 +42,7 @@ except:
     from datetime import datetime
 
 token = "6626740246:AAHI-NJLGHeyvgaJeEvoFj7fHdti65xm0FI" #توكنك
-chat_id = "6734504359" #ايديك
+chat_id = "1958060577" #ايديك
 
 bot = TeleBot(token=token)
 db = Client(f"users{chat_id}.bot")
