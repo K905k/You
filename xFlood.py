@@ -41,7 +41,7 @@ except:
     system('pip install datetime')
     from datetime import datetime
 
-token = "6626740246:AAHI-NJLGHeyvgaJeEvoFj7fHdti65xm0FI" #توكنك
+token = "6688042392:AAHCEQ1s1BUms3vxFhgo9-jf7Vsl30qI9N0" #توكنك
 chat_id = "1958060577" #ايديك
 
 bot = TeleBot(token=token)
@@ -85,11 +85,11 @@ async def checks(username, client):
     return await client(CheckUsernameRequest(username))
 
 async def claimer(client,username):
-    result = await client(functions.channels.CreateChannelRequest(title=f'[ {username} ]',about=f'Source - @AhmedTools',megagroup=False))
+    result = await client(functions.channels.CreateChannelRequest(title=f'[ {username} ]',about=f'Source - @skrawi',megagroup=False))
     try:
         await client(functions.channels.UpdateUsernameRequest(channel=result.chats[0],username=username))
-        await client.send_message(username,f'⌯ Done Save UserName .\n⌯ UserName : @{username} .\n⌯ Date : {datetime.now().strftime("%H:%M:%S")} .\n⌯ Source : @AhmedTools .')
-        bot.send_message(chat_id,f'⌯ Done Save UserName .\n⌯ UserName : @{username} .\n⌯ Date : {datetime.now().strftime("%H:%M:%S")} .\n⌯ Source : @AhmedTools .')
+        await client.send_message(username,f'⌯ Done Save UserName .\n⌯ UserName : @{username} .\n⌯ Date : {datetime.now().strftime("%H:%M:%S")} .\n⌯ Source : @skrawi .')
+        bot.send_message(chat_id,f'⌯ Done Save UserName .\n⌯ UserName : @{username} .\n⌯ Date : {datetime.now().strftime("%H:%M:%S")} .\n⌯ Source : @skrawi .')
         return True
     except Exception as e: bot.send_message(chat_id,f'⌯ Error Message .\nMessage : {e} .\nUserName : @'+str(username));return False
 
@@ -361,18 +361,18 @@ def fromCombo(message):
 
 def reset(msg):
     if db.exists('session') is False:
-    	bot.send_message(chat_id, text="اهلا بك عزيزي\nبوت متخصص لجلب خاصيات\n– – – – –\nمطوره : @YYYaYY", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="اضف حساب",callback_data="add")]]))
+    	bot.send_message(chat_id, text="اهلا بك عزيزي\nبوت متخصص لجلب خاصيات\n– – – – –\nمطوره : @skrawi", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="اضف حساب",callback_data="add")]]))
     	return 
-    bot.send_message(chat_id, text="اهلا بك عزيزي\nبوت متخصص لجلب خاصيات\n– – – – –\nمطوره : @YYYaYY", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="فحص عشوائي", callback_data="start")],[InlineKeyboardButton(text="من ملف", callback_data="combo"),InlineKeyboardButton(text="تثبيت", callback_data="us1")],[InlineKeyboardButton(text="اختيار نوع", callback_data="type"),]]))
+    bot.send_message(chat_id, text="اهلا بك عزيزي\nبوت متخصص لجلب خاصيات\n– – – – –\nمطوره : @skrawi", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="فحص عشوائي", callback_data="start")],[InlineKeyboardButton(text="من ملف", callback_data="combo"),InlineKeyboardButton(text="تثبيت", callback_data="us1")],[InlineKeyboardButton(text="اختيار نوع", callback_data="type"),]]))
 
 @bot.message_handler(func=lambda msg: True)
 def startB(msg):
     if msg.chat.id != int(chat_id): return
     elif msg.text == "/start":
     	if db.exists('session') is False:
-    		bot.send_message(chat_id, text="اهلا بك عزيزي\nبوت متخصص لجلب خاصيات\n– – – – –\nمطوره : @YYYaYY", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="اضف حساب",callback_data="add")]]))
+    		bot.send_message(chat_id,text="اهلا بك عزيزي\nبوت متخصص لجلب خاصيات\n– – – – –\nمطوره : @skrawi", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="اضف حساب",callback_data="add")]]))
     		return 
-    	bot.send_message(chat_id, text="اهلا بك عزيزي\nبوت متخصص لجلب خاصيات\n– – – – –\nمطوره : @YYYaYY", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="فحص عشوائي", callback_data="start")],[InlineKeyboardButton(text="من ملف", callback_data="combo"),InlineKeyboardButton(text="تثبيت", callback_data="us1")],[InlineKeyboardButton(text="اختيار نوع", callback_data="type"),]]))
+    	bot.send_message(chat_id,text="اهلا بك عزيزي\nبوت متخصص لجلب خاصيات\n– – – – –\nمطوره : @skrawi", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="فحص عشوائي", callback_data="start")],[InlineKeyboardButton(text="من ملف", callback_data="combo"),InlineKeyboardButton(text="تثبيت", callback_data="us1")],[InlineKeyboardButton(text="اختيار نوع", callback_data="type"),]]))
     elif ".فحص" in msg.text:
     	bot.send_message(chat_id=chat_id,text="الفحص شغال طاب يومك")
     elif '.تثبيت ' in msg.text:
